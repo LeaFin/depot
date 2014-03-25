@@ -8,8 +8,12 @@ class Product < ActiveRecord::Base
 
     def price_in_steps
         if price and price % 0.05 != 0.0
-            errors.add(:price, "Preis muss in 5 Rappen-Schritten angegeben werden.")
+            errors.add(:price, "Price must be in 0.05 steps")
         end
     end 
     validate :price_in_steps
+
+    def self.latest
+        Product.order(:updated_at).last
+    end
 end
