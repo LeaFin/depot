@@ -1,5 +1,6 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
-
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @product.title %>
@@ -17,7 +18,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  <%= number_to_chf(@product.price) %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
