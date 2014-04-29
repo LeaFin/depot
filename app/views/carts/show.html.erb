@@ -2,9 +2,25 @@
     <p id="notice"><%= notice %></p>
 <% end %>
 <h2>Your Pragmatic Cart</h2>
-<ul>
+<table style="border:0; width:80%;">
+    <tr>
+        <th style="text-align: left;">Product</th>
+        <th style="text-align: right;">Price</th>
+        <th style="text-align: right;">Quantity</th>
+        <th style="text-align: right;">Subtotal<th>
+    </tr>
     <% @cart.line_items.each do |item| %>
-        <li><%= item.quantity %> &times; <%= item.product.title %>  <%= number_to_chf(item.product.price * item.quantity) %></li>
+    <tr>
+        <td style="text-align: left;"><%= item.product.title %></td>
+        <td style="text-align: right;"><%= number_to_chf(item.product.price)%></td>
+        <td style="text-align: right;">&times; <%= item.quantity %></td>
+        <td style="text-align: right;"><%= number_to_chf(item.product.price * item.quantity) %></td>
+    </tr>
     <% end %>
-    <li class="total">Total: <%= number_to_chf(@cart.get_total_price) %></li>
-</ul>
+    <tr>
+        <th></th>
+        <th></th>
+        <th style="text-align: right;">Total</th>
+        <th style="text-align: right;"><%= number_to_chf(@cart.get_total_price) %></th>
+    </tr>
+</table>
