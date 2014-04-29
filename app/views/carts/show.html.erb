@@ -3,8 +3,8 @@
 <% end %>
 <h2>Your Pragmatic Cart</h2>
 <ul>
-    <% @cart.line_items.each do |item| %> 
-        <li><%= item.product.title %>  <%= number_to_chf(item.product.price) %></li>
-    <% end %> 
+    <% @cart.line_items.each do |item| %>
+        <li><%= item.quantity %> &times; <%= item.product.title %>  <%= number_to_chf(item.product.price * item.quantity) %></li>
+    <% end %>
     <li class="total">Total: <%= number_to_chf(@cart.get_total_price) %></li>
 </ul>
