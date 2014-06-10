@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
     has_many :line_items
+    has_many :orders, through: :line_items
 
     before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -14,7 +15,7 @@ class Product < ActiveRecord::Base
         if price and price % 0.05 != 0.0
             errors.add(:price, "Price must be in 0.05 steps")
         end
-    end 
+    end
     validate :price_in_steps
 
     def self.latest

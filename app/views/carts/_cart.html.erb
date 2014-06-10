@@ -13,6 +13,6 @@
         <th style="text-align: right;"><%= number_to_chf(cart.get_total_price) %></th>
     </tr>
 </table>
-
+<%= button_to "Checkout", new_order_path, method: :get %>
 <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
  <% end %>
