@@ -1,0 +1,10 @@
+<% if line_item == @current_item %>
+    <tr id="current_item">
+<% else %>
+    <tr>
+<% end %>
+    <td style="text-align: left;"><%= line_item.product.title %></td>
+    <td style="text-align: right;"><%= number_to_chf(line_item.product.price)%></td>
+    <td style="text-align: right;">&times; <%= line_item.quantity %></td>
+    <td style="text-align: right;"><%= number_to_chf(line_item.product.price * line_item.quantity) %></td>
+</tr>

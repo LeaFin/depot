@@ -1,0 +1,18 @@
+<% unless cart.line_items.empty? %>
+<h2>Your Cart</h2>
+<table style="border:0; width:80%;">
+    <tr>
+        <th style="text-align: left;">Product</th>
+        <th style="text-align: right;">Price</th>
+        <th style="text-align: right;">Quantity</th>
+        <th style="text-align: right;">Subtotal<th>
+    </tr>
+    <%= render(cart.line_items) %>
+    <tr class="total_line">
+        <th colspan="3" style="text-align: right;">Total</th>
+        <th style="text-align: right;"><%= number_to_chf(cart.get_total_price) %></th>
+    </tr>
+</table>
+
+<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+ <% end %>

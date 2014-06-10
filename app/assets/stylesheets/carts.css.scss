@@ -5,3 +5,8 @@
 .total {
     font-weight: bold;
 }
+.carts, #side #cart {
+    .item_price, .total_line {
+        text-align: right;
+    }
+}
