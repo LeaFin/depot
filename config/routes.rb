@@ -1,4 +1,6 @@
 Depot::Application.routes.draw do
+  resources :orders
+
   resources :line_items
 
   resources :carts
@@ -48,7 +50,7 @@ Depot::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
